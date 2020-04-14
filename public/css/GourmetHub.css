@@ -1,0 +1,208 @@
+/*title*/
+h1 {
+
+    font-family: 'Merienda';
+    text-align: center;
+    color: #0a1157;
+}
+
+
+h2 {
+    font-family: 'Merienda';
+    font-weight: bolder;
+    color: #0a1157;
+    text-align: center;
+}
+
+.header {
+    position: relative;
+}
+
+/*navigation bar*/
+#pills-tab .active{
+    color: #0a1157;
+    background-color: #f2cffc;
+}
+
+.nav-link{
+    color: #f099ca;
+}
+
+/*Place title on top of image*/
+.header h1 {
+    font-family: 'Merienda';
+    font-size: 55px;
+    position: absolute;
+    color: #0a1157;
+    top: 35%;
+    left: 38%;
+}
+
+/*search button*/
+.form-inline button {
+    color: #0a1157;
+    background-color: #f2cffc;
+}
+
+/*place search in the middle of the image*/
+.form-inline {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*search form*/
+.form-control {
+    padding: 20px;
+}
+
+/*align tagline in center*/
+.header span {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #0a1157;
+    font-family: 'Merienda';
+}
+
+/*home image*/
+.header img {
+    width: 100%;
+}
+
+/*buttons*/
+.card-body a {
+    color: white;
+    background-color: #0a1157;
+}
+
+/*cuisine buttons*/
+.cuisineResto {
+    color: white;
+    background-color: #0a1157;
+}
+
+/*sort restaurant buttons*/
+#sortResto {
+    color: #0a1157;
+    background-color: #f2cffc;
+}
+
+#sortResto1 {
+    color: #0a1157;
+    background-color: #f2cffc;
+}
+
+/*align text and buttons of cards in the middle*/
+#pills-cuisine .card-body {
+    text-align: center;
+    display: inline-block;
+}
+
+/*sort button*/
+.restaurants button{
+    color: white;
+    background-color: #0a1157;
+}
+
+.dropdown-menu{
+    color: #0a1157;
+    background-color: #f2cffc;
+}
+
+.dropdown-menu a{
+    color: #0a1157;
+}
+
+/*Align partner description*/
+.partnerDescription {
+    text-align: center;
+    left: 40%;
+    color: #0a1157;
+    font-family: "Georgia";
+}
+
+/*user sign in buttons*/
+.registerForm button {
+    color: white;
+    background-color: #0a1157;
+}
+
+/*footer headers*/
+#Footer .footerTitle {
+    font-family: "Georgia";
+    font-weight: bold;
+    text-align: center;
+}
+
+/*align about description*/
+.aboutDescription {
+    font-family: "Georgia";
+    text-align: center;
+}
+
+.contactIcons {
+    text-align: center;
+}
+
+#Footer {
+    margin-top: 15px;
+    height: 200px;
+    background-color: #f2cffc;
+    color: #0a1157;
+}
+
+/*login interfaces*/
+#signIn, #partnerSignIn {
+    float: left;
+    width: 300px;
+    margin: auto;
+    position: relative;
+    left: 15%;
+    top: 5%;
+    height: 700px;
+}
+
+/*register interfaces*/
+#signUp, #partnerSignUp {
+    float: right;
+    width: 300px;
+    margin: auto;
+    position: relative;
+    right: 15%;
+    top: 5%;
+    height: 700px;
+}
+
+#pills-userLogin {
+    height: 750px;
+}
+
+#pills-userLogin img {
+    width: 100%;
+    height: 700px;
+    position: absolute;
+}
+
+#pills-partnerLogin {
+    height: 750px;
+}
+
+#pills-partnerLogin img {
+    width: 100%;
+    height: 700px;
+    position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gourmet Hub</title>
+
+    <!--Bootstrap-->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
+
+    <!--External CSS-->
+    <link href='https://fonts.googleapis.com/css?family=Merienda' rel='stylesheet'>
+    <link href="css/GourmetHub.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<!--Title-->
+<h1>Gourmet Hub</h1>
+
+<!--Navigation bar-->
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+        <a aria-controls="pills-home" aria-selected="true" class="nav-link active" data-toggle="pill" href="#pills-home"
+           id="pills-home-tab" role="tab">Home</a>
+    </li>
+    <li class="nav-item">
+        <a aria-controls="pills-cuisine" aria-selected="false" class="nav-link" data-toggle="pill" href="#pills-cuisine"
+           id="pills-cuisine-tab" role="tab">Cuisine</a>
+    </li>
+    <li class="nav-item">
+        <a aria-controls="pills-restaurant" aria-selected="false" class="nav-link" data-toggle="pill"
+           href="#pills-restaurant"
+           id="pills-restaurant-tab" role="tab">Restaurant</a>
+    </li>
+    <li class="nav-item">
+        <a aria-controls="pills-partner" aria-selected="false" class="nav-link" data-toggle="pill" href="#pills-partner"
+           id="pills-partner-tab" role="tab">Partner With Us</a>
+    </li>
+    <li class="nav-item">
+        <a aria-controls="pills-userLogin" aria-selected="false" class="nav-link" data-toggle="pill"
+           href="#pills-userLogin"
+           id="pills-userLogin-tab" role="tab">User Login</a>
+    </li>
+    <li class="nav-item">
+        <a aria-controls="pills-partnerLogin" aria-selected="false" class="nav-link" data-toggle="pill"
+           href="#pills-partnerLogin"
+           id="pills-partnerLogin-tab" role="tab">Partner Login</a>
+    </li>
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+    <!--Home-->
+    <div aria-labelledby="pills-home-tab" class="tab-pane fade show active" id="pills-home" role="tabpanel">
+        <div class="header">
+            <img alt="Food background" src="images/resto4.jpeg">
+            <h1>Gourmet Hub</h1>
+            <span>Search for your favourite restaurant or cuisine near you here!</span>
+            <form action="/searchRestaurant" class="form-inline" method="get" name="searchForm" onsubmit="return (validateSearch());">
+                <input aria-label="Search" class="form-control mr-sm-2" id="searchResto" name="search"
+                       placeholder="Enter your location" type="search">
+                <button class="btn my-2 my-sm-0" onclick="searchResto()"  type="submit"><i
+                        class="fas fa-search-location"></i> Search
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!--Cuisines-->
+    <div aria-labelledby="pills-cuisine-tab" class="tab-pane fade" id="pills-cuisine" role="tabpanel">
+        <h2>Cuisines</h2>
+        <p class="tagline">Find restaurants offering your favourite cuisines</p>
+        <div class="row row-cols-1 row-cols-md-3">
+            <div class="col mb-4">
+                <div class="card h-100">
+                    <img alt="Chinese food" class="card-img-top" src="images/chinesedesc.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title">Chinese</h5>
+                        <p class="card-text">Check out the lists of restaurants providing delicious dim sums, chow mien
+                            and more!</p>
+                        <form action="/chineseResto" method="post">
+                            <button class="cuisineResto btn btn-outline-light" type="submit">Chinese Restaurant</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="card h-100">
+                    <img alt="Mexican food" class="card-img-top" src="images/mexican.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title">Mexican</h5>
+                        <p class="card-text">Tortillas, nachos, burritos, you name it! Don't know where to find some?
+                            Click the link below!</p>
+                        <form action="/mexicanResto" method="post">
+                            <button class="cuisineResto btn btn-outline-light" type="submit">Mexican Restaurant</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="card h-100">
+                    <img alt="Indian Food" class="card-img-top" src="images/indiandesc.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title">Indian</h5>
+                        <p class="card-text">View the best restaurants providing some nice palak paneer and chicken
+                            tandoori!</p>
+                        <form action="/indianResto" method="post">
+                            <button class="cuisineResto btn btn-outline-light" type="submit">Indian Restaurant</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="card h-100">
+                    <img alt="Burgers" class="card-img-top" src="images/burgerdesc.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title">Burgers</h5>
+                        <p class="card-text">Want to try a joint burger other than KFC and McDonalds? We're here to
+                            help.</p>
+                        <form action="/burgerJoints" method="post">
+                            <button class="cuisineResto btn btn-outline-light" type="submit">Burger Joints</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="card h-100">
+                    <img alt="Steak" class="card-img-top" src="images/steakdesc.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title">Steak</h5>
+                        <p class="card-text">Fancy a delicious medium ribeye? Gourmet Hub is partnered with some of the
+                            best bistros in the country!</p>
+                        <form action="/steakHouse" method="post">
+                            <button class="cuisineResto btn btn-outline-light" type="submit">Steakhouse</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Restaurant-->
+    <div aria-labelledby="pills-restaurant-tab" class="tab-pane fade" id="pills-restaurant" role="tabpanel">
+        <h2>Restaurants</h2>
+        <div class="restaurants">
+
+            <!--Sort restaurants from A to Z or from Z to A-->
+            <div class="dropdown">
+                <button aria-expanded="false" aria-haspopup="true"
+                        class="cuisineResto btn btn-outline-light dropdown-toggle"
+                        data-toggle="dropdown" id="dropdownMenuButton" type="button">
+                    Sort
+                </button>
+                <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+                    <form action="/sortAtoZ" method="post">
+                        <button class="btn" id="sortResto" type="submit">Sort A to Z</button>
+                    </form>
+                    <form action="/sortZtoA" method="post">
+                        <button class="btn" id="sortResto1" type="submit">Sort Z to A</button>
+                    </form>
+                </div>
+            </div>
+
+            <!--List of restaurants from database-->
+            <form action="/displayRestaurants" method="post">
+                <button class="cuisineResto btn btn-outline-light" type="submit">List Restaurants</button>
+            </form>
+
+            <!--Restaurants-->
+            <div class="row row-cols-1 row-cols-md-3">
+                <!--Mexican-->
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Las Tapas-Mexican" class="card-img-top" src="images/mexicanresto1.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Las Tapas</h5>
+                            <p class="card-text">The most famous mexican restaurant in Quatre Bornes selling the best
+                                burritos in the Indian Ocean</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Mariana Bonita-Mexican" class="card-img-top" src="images/mexicoresto2.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Mariana Bonita</h5>
+                            <p class="card-text">Located in the capital of Mauritius, Mariana Bonita is always
+                                buzzing</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Guac-Mexican" class="card-img-top" src="images/mexicresto3.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Guac</h5>
+                            <p class="card-text">A small, chic mexican restaurant situated in Mahebourg with one of the
+                                best
+                                fish tacos on the island</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Chinese-->
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Dim Sum Express-Chinese" class="card-img-top" src="images/chinresto1.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Dim Sum Express</h5>
+                            <p class="card-text">Dim Sum Express sells enormous fried and steamed dumplings! One of the
+                                places you can't miss when coming to Vacoas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Wonton Town-Chinese" class="card-img-top" src="images/chinresto2.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Wonton Town</h5>
+                            <p class="card-text">Wonton Town is a small, homely restaurant near the airport that sells,
+                                without doubt, the best ramen and wonton soup in the country. It is a must to go
+                                there!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Eighty Eight-Chinese" class="card-img-top" src="images/chinresto3.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Eighty Eight</h5>
+                            <p class="card-text">Eighty Eight is one of the most popular chinese restaurants among
+                                tourists.
+                                It provides an ambient, romantic atmosphere while displaying their authentic chinese
+                                cuisines.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Indian-->
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Sitar-Indian" class="card-img-top" src="images/indianresto1.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Sitar</h5>
+                            <p class="card-text">Located not far from University of Mauritius, Sitar offers authentic
+                                North Indian food at an affordable price.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Pranam" class="card-img-top" src="images/indianresto2.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Pranam</h5>
+                            <p class="card-text">If you are looking for pani puri and sev puri, Pranam is the right
+                                place!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Mayapore Cafe" class="card-img-top" src="images/indianresto3.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Mayapore Cafe</h5>
+                            <p class="card-text">Idli, sambar, dosa, come and discover pure south indian food at
+                                Mayapore Cafe in Quatre Bornes.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Burger-->
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Rocomama" class="card-img-top" src="images/burgeresto1.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Rocomama</h5>
+                            <p class="card-text">Come around for Rocomama's juicy lucy burgers and crinkled sweet potato
+                                fries!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Five Guys" class="card-img-top" src="images/burgeresto2.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Five Guys</h5>
+                            <p class="card-text">The popular British food chain has opened its first branch in
+                                Mauritius! Five Guys is known for it's juicy beef burgers and best crispy french
+                                fries.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Burger Town" class="card-img-top" src="images/burgeresto3.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Burger Town</h5>
+                            <p class="card-text">Another popular food spot in Tamarin attracting a lot of foodies for
+                                its aesthetic decor and crispy buttermilk chicken burgers.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Steak-->
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Spur" class="card-img-top" src="images/steakhouse2.jfif">
+                        <div class="card-body">
+                            <h5 class="card-title">Spur</h5>
+                            <p class="card-text">When you think of a steakhouse in Mauritius, Spur is definitely the one
+                                that comes to your mind first. Spur offers high quality steak and ribs at an affordable
+                                price. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="Savinia Bistrot" class="card-img-top" src="images/steakhouse1.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Savinia Bistrot</h5>
+                            <p class="card-text">Chic, high-end restaurant near the airport. Indulge into rich dry-aged
+                                ribeyes and sirloins. Savia Bistrot is the number one steakhouse in Mauritius acccording
+                                to food critics!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img alt="The Irish" class="card-img-top" src="images/steakhouse4.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">The Irish</h5>
+                            <p class="card-text">Not far from Plaza, The Irish is another popular and affordable
+                                steakhouse found in Rose-Hill. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Partner-->
+    <div aria-labelledby="pills-partner-tab" class="tab-pane fade" id="pills-partner" role="tabpanel">
+        <h2>Why Partner With Us?</h2>
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col mb-4">
+                <div class="card">
+                    <img alt="Increase sales" class="card-img-top" src="images/increasesales.png">
+                    <div class="card-body">
+                        <h5 class="card-title">Increase your profits!</h5>
+                        <p class="card-text">Join a well-oiled marketing machine and watch the orders come in through
+                            your
+                            door and online</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="card h-100">
+                    <img alt="Attract customers" class="card-img-top" src="images/attractcustomers.png">
+                    <div class="card-body">
+                        <h5 class="card-title">Attract more customers!</h5>
+                        <p class="card-text">Attract new local customers and keep them coming back for more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card partnerDescription" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Partner Up</h5>
+                <p class="card-text">Partner up by registering yourself with us on the Partner Login page and our
+                    dedicated team will get back to you
+                    in
+                    less than 5 days!</p>
+            </div>
+        </div>
+    </div>
+
+    <!--User interface-->
+    <div aria-labelledby="pills-userLogin-tab" class="tab-pane fade" id="pills-userLogin" role="tabpanel">
+        <h2>Login here if you are a user</h2>
+        <img alt="sign in image" src="images/resto5.jpeg">
+        <div id="signIn">
+            <!--Login form-->
+            <h2>Sign in</h2>
+            <div class="registerForm">
+                <form action="/userLogin" method="post" name="userLoginForm" onsubmit="return (validateuserLogin());">
+                    <div class="form-group">
+                        <label><b>Username</b>
+                            <input class="form-control" id="existingUsername" name="uname" placeholder="Enter Username"
+                                   type="text"></label>
+
+                        <label><b>Password</b>
+                            <input class="form-control" id="passWord" name="psw" placeholder="Enter Password"
+                                   type="password"></label>
+                    </div>
+                    <button class="btn btn-outline-light" onclick="userLogin()" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!--Sign up-->
+        <div id="signUp">
+            <h2>Sign up</h2>
+            <div class="registerForm">
+                <form action="/users" method="post" name="regForm" onsubmit="return (validateRegistration());">
+                    <div class="form-group">
+                        <label><b>First Name</b>
+                            <input class="form-control" id="new_first_name" name="firstName"
+                                   placeholder="Enter first name"
+                                   type="text"></label>
+
+                        <label><b>Last Name</b>
+                            <input class="form-control" id="new_last_name" name="lastName" placeholder="Enter last name"
+                                   type="text"></label>
+
+                        <label><b>Username</b>
+                            <input class="form-control" id="new_username" name="uname" placeholder="Enter username"
+                                   type="text"></label>
+
+                        <label><b>Email</b>
+                            <input class="form-control" id="new_email" name="email" placeholder="Enter Email"
+                                   type="text"></label>
+
+                        <label><b>Password</b>
+                            <input class="form-control" id="new_password" name="psw" placeholder="Enter Password"
+                                   type="password"></label>
+
+                        <label><b>Repeat Password</b>
+                            <input class="form-control" name="psw_repeat" placeholder="Repeat Password"
+                                   type="password"></label>
+
+                        <label><b>Address</b>
+                            <input class="form-control" id="new_address" name="address"
+                                   placeholder="Enter location name"
+                                   type="text"></label>
+                    </div>
+                    <button class="btn btn-outline-light" onclick="storeNewUser()" type="submit">Register
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--Partner interface-->
+    <div aria-labelledby="pills-partnerLogin-tab" class="tab-pane fade" id="pills-partnerLogin" role="tabpanel">
+        <h2>Login here if you are a partner</h2>
+        <img alt="sign in image" src="images/homeresto.jpeg">
+        <!--Sign in-->
+        <div id="partnerSignIn">
+            <!--Login form-->
+            <h2>Login</h2>
+            <div class="registerForm">
+                <form action="/ownerLogin" method="post" name="ownerLoginForm"
+                      onsubmit="return (validateOwnerLogin());">
+                    <div class="form-group">
+                        <label><b>Email</b>
+                            <input class="form-control" id="owner_email" name="email" placeholder="Enter Email"
+                                   type="text"></label>
+
+                        <label><b>Password</b>
+                            <input class="form-control" id="owner_password" name="psw" placeholder="Enter Password"
+                                   type="password"></label>
+                    </div>
+                    <button class="btn btn-outline-light" onclick="ownerLogin()" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+        <!--Sign up-->
+        <div id="partnerSignUp">
+            <!--Sign up form-->
+            <h2>Become a partner</h2>
+            <div class="registerForm">
+                <form action="/owners" method="post" name="RegForm" onsubmit="return (validateOwnerRegForm());">
+                    <div class="form-group">
+                        <label><b>First Name</b>
+                            <input class="form-control" id="ownerFName" name="firstName" placeholder="Enter first name"
+                                   type="text"></label>
+
+                        <label><b>Last Name</b>
+                            <input class="form-control" id="ownerLName" name="lastName" placeholder="Enter last name"
+                                   type="text"></label>
+
+                        <label><b>Email</b>
+                            <input class="form-control" id="ownerEmail" name="email" placeholder="Enter Email"
+                                   type="text"></label>
+
+                        <label><b>Phone number</b>
+                            <input class="form-control" id="ownerNumber" name="phoneNumber"
+                                   placeholder="Enter phone number"
+                                   type="text"></label>
+
+                        <label><b>Password</b>
+                            <input class="form-control" id="ownerPassword" name="psw" placeholder="Enter Password"
+                                   type="password"></label>
+
+                        <label><b>Repeat Password</b>
+                            <input class="form-control" name="psw_repeat" placeholder="Repeat Password"
+                                   type="password"></label>
+                    </div>
+                    <button class="btn btn-outline-light" onclick="storeNewOwner()" type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Footer-->
+<div id="Footer">
+    <div class="aboutDescription">
+        <p class="footerTitle">About Gourmet Hub</p>
+        <p>Gourmet Hub is one of the most popular restaurant finder-application. There are very few, if not,
+            applications which allow a user to find a restaurant they want to try, in Mauritius.
+            Hence, Gourmet Hub!</p>
+        <hr>
+    </div>
+
+    <div class="contactIcons">
+        <p class="footerTitle">Contact Us</p>
+        <a href="https://www.facebook.com/"><img alt="facebook icon"
+                                                 src="https://img.icons8.com/ios/50/000000/facebook-circled.png"/></a>
+        <a href="https://twitter.com/"><img alt="twitter icon"
+                                            src="https://img.icons8.com/ios/50/000000/twitter-squared.png"/></a>
+        <a href="https://www.instagram.com/"><img alt="instagram icon"
+                                                  src="https://img.icons8.com/ios/50/000000/instagram-new.png"/></a>
+    </div>
+</div>
+
+<!--JS Scripts-->
+<script src="js/search.js"></script>
+<script src="js/register.js"></script>
+<script src="js/login.js"></script>
+<!-- Bootstrap JS-->
+<script crossorigin="anonymous"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/2db660211c.js"></script>
+</body>
+</html>
